@@ -8,9 +8,9 @@ a6bbcc000300
 a7bbcc000300
 a8bbcc000300
 a9bbcc000300
-aabbcc000300
+aabb.cc00.0300
 abbbcc000300
-acbbcc000300
-adbb.cc00.0300
+ac-bb-cc-00-03-00
+adbbcc000300
 ae:bb:cc:00:03:00
-af-bb-cc-00-03-00
+afbbcc000300

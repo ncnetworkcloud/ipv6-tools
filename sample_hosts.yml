@@ -1,35 +1,30 @@
 ---
 all:
-  hosts:
-    a0bbcc000300:
-      ansible_host: 2001:db8::a2bb:ccff:fe00:0300
-    a1bbcc000300:
-      ansible_host: 2001:db8::a3bb:ccff:fe00:0300
-    a2bbcc000300:
-      ansible_host: 2001:db8::a0bb:ccff:fe00:0300
-    a3bbcc000300:
-      ansible_host: 2001:db8::a1bb:ccff:fe00:0300
-    a4bbcc000300:
-      ansible_host: 2001:db8::a6bb:ccff:fe00:0300
-    a5bbcc000300:
-      ansible_host: 2001:db8::a7bb:ccff:fe00:0300
-    a6bbcc000300:
-      ansible_host: 2001:db8::a4bb:ccff:fe00:0300
-    a7bbcc000300:
-      ansible_host: 2001:db8::a5bb:ccff:fe00:0300
-    a8bbcc000300:
-      ansible_host: 2001:db8::aabb:ccff:fe00:0300
-    a9bbcc000300:
-      ansible_host: 2001:db8::abbb:ccff:fe00:0300
-    aabbcc000300:
-      ansible_host: 2001:db8::a8bb:ccff:fe00:0300
-    abbbcc000300:
-      ansible_host: 2001:db8::a9bb:ccff:fe00:0300
-    acbbcc000300:
-      ansible_host: 2001:db8::aebb:ccff:fe00:0300
-    adbbcc000300:
-      ansible_host: 2001:db8::afbb:ccff:fe00:0300
-    aebbcc000300:
-      ansible_host: 2001:db8::acbb:ccff:fe00:0300
-    afbbcc000300:
-      ansible_host: 2001:db8::adbb:ccff:fe00:0300
+  children:
+    auto_eui64:
+      hosts:
+        node_a0bbcc000300:
+          ansible_host: "2001:db8::a2bb:ccff:fe00:0300"
+          original_mac: "a0bbcc000300"
+        node_a2bbcc000300:
+          ansible_host: "2001:db8::a0bb:ccff:fe00:0300"
+          original_mac: "a2bbcc000300"
+        node_a4bbcc000300:
+          ansible_host: "2001:db8::a6bb:ccff:fe00:0300"
+          original_mac: "a4bbcc000300"
+        node_a6bbcc000300:
+          ansible_host: "2001:db8::a4bb:ccff:fe00:0300"
+          original_mac: "a6bbcc000300"
+        node_a8bbcc000300:
+          ansible_host: "2001:db8::aabb:ccff:fe00:0300"
+          original_mac: "a8bbcc000300"
+        node_aabbcc000300:
+          ansible_host: "2001:db8::a8bb:ccff:fe00:0300"
+          original_mac: "aabbcc000300"
+        node_acbbcc000300:
+          ansible_host: "2001:db8::aebb:ccff:fe00:0300"
+          original_mac: "acbbcc000300"
+        node_aebbcc000300:
+          ansible_host: "2001:db8::acbb:ccff:fe00:0300"
+          original_mac: "aebbcc000300"
+...
