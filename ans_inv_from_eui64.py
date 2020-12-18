@@ -18,14 +18,14 @@ def main(v6_prefix):
     """
 
     # Load MAC addresses from file
-    with open("macs.txt", "r") as handle:
+    with open("input_macs.txt", "r") as handle:
         lines = handle.readlines()
 
     # Initialize Ansible YAML inventory dictionary
-    ansible_inv = {"all": {"children": {"auto_eui64": {"hosts": {}}}}}
+    ansible_inv = {"all": {"children": {"remotes": {"hosts": {}}}}}
 
     # Iterate over the lines read from file
-    for line in lines:
+    for index, line in enumerate(lines):
 
         # Clean up the line; remove whitespace and delimeters
         mac = line.strip().lower()
@@ -52,9 +52,9 @@ def main(v6_prefix):
         # will be "node_" plus the entire MAC address (user can modify).
         # The IPv6 address is the address to which Ansible connects and
         # the original MAC is retained for documentation/troubleshooting
-        ansible_inv["all"]["children"]["auto_eui64"]["hosts"].update(
+        ansible_inv["all"]["children"]["remotes"]["hosts"].update(
             {
-                f"node_{mac}": {
+                f"node_{index + 1}": {
                     "ansible_host": DoubleQuotedScalarString(eui64_addr),
                     "original_mac": DoubleQuotedScalarString(mac),
                 }
@@ -69,7 +69,7 @@ def main(v6_prefix):
     yaml.explicit_end = True
 
     # Dump the Ansible inventory to a new file for use later
-    with open("hosts.yml", "w") as handle:
+    with open("eui64_hosts.yml", "w") as handle:
         yaml.dump(ansible_inv, handle)
 
 

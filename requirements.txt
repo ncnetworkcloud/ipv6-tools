@@ -2,3 +2,7 @@ ruamel.yaml
 yamllint
 black
 pylint
+netmiko
+pyats
+genie
+ipaddress

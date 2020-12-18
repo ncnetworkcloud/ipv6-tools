@@ -15,8 +15,8 @@ lint:
 .PHONY: run
 run:
 	@echo "Starting  test runs"
-	python eui64.py
-	python eui64.py fc00::
+	python ans_inv_from_eui64.py
+	python ans_inv_from_eui64.py fc00::
 	@echo "Completed test runs"
 
 .PHONY: clean
